@@ -1,0 +1,35 @@
+body{
+    display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  
+  background: #627d4d;
+  background: -moz-linear-gradient(-45deg, #627d4d 0%, #1f3b08 100%);
+  background: -webkit-linear-gradient(-45deg, #627d4d 0%,#1f3b08 100%);
+  background: linear-gradient(135deg, #627d4d 0%,#1f3b08 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#627d4d', endColorstr='#1f3b08',GradientType=1 );
+	 
+}
+#logout{
+    position:fixed;
+    right:4px;
+    top:4px;
+    background: white;
+}
+.box{
+    background: white;
+    border-radius: 5px;
+    padding:20px;
+      box-shadow: 5px 10px 10px 8px rgba(0, 0, 0, 0.3);
+}
+
+.active{
+    background:white;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.width{
+    width:50%;
+    text-align: center;
+}

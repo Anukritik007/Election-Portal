@@ -1,0 +1,22 @@
+
+.customfont{
+    font-family: 'Roboto Slab', serif;
+  }
+  
+  h5{
+    text-align: center;
+  }
+  .box{
+    background: white;
+    border-radius: 5px;
+    padding:20px;
+      box-shadow: 5px 10px 10px 8px rgba(0, 0, 0, 0.3);
+}
+.grey{
+  border-radius: 20px;
+  background:#dee3e8;
+}
+.invalid{
+  text-align: center;
+  color: red;
+}

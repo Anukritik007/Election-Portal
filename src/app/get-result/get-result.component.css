@@ -1,0 +1,38 @@
+body{
+ 
+    background:linear-gradient(rgba(255,255,255,.4), rgba(255,255,255,.4)),url("/assets/back4.jpg");
+    height: 100%; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 93vh;
+}
+#logout{
+    position:fixed;
+    right:4px;
+    top:4px;
+    background: white;
+}
+.result-card{
+    width:60%;
+    height:60%;
+}
+
+#individual-button{
+    background: greenyellow;
+    position: absolute;
+    bottom:5px;
+    left:5px;
+}
+#winner-button{
+    background: red;
+    position: absolute;
+    bottom:5px;
+    right:5px;
+}

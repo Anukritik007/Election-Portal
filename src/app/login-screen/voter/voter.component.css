@@ -1,0 +1,27 @@
+.box{
+    background: white;
+    border-radius: 5px;
+    padding:20px;
+    opacity: 50%;
+      box-shadow: 5px 10px 10px 8px rgba(0, 0, 0, 0.3);
+}
+.customfont{
+  font-family: 'Roboto Slab', serif;
+}
+
+h5{
+  text-align: center;
+}
+.invalid{
+  color:red;
+  text-align:center;
+}
+.active{
+  background: #23af8929;
+  border-radius: 4px;
+}
+form{
+  background: #23af8929;
+  padding: 10px;
+  border-radius: 4px;
+}

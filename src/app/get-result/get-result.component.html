@@ -1,0 +1,22 @@
+<button type="button" id="logout" class="btn btn-default" (click)="onLogoutLeave()"><i class="fas fa-sign-out-alt"></i></button>
+<body>
+
+    <mat-card class="result-card">
+            
+            <mat-tab-group>
+                <mat-tab label="Institute">
+                <h4>Institute of Engineering and Management</h4>
+                
+                </mat-tab>
+                <mat-tab label="Post">
+                <h4>You are viewing the result for the post of President</h4>
+                </mat-tab>
+            </mat-tab-group>
+            <br><br><br><br><br>
+            
+    <button type="button" id="individual-button" class="btn btn-default" (click)="GetIndividualVoteOpenDialog()">View Individual votes</button>
+        
+    <button type="button" id="winner-button" class="btn btn-default" (click)="GetWinnerOpenDialog()">Stop election and get Winner</button>
+        
+    </mat-card>
+</body>
