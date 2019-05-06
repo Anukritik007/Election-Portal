@@ -16,23 +16,21 @@
                 <br>
                 <mat-divider></mat-divider>
                 <br>
-       
+                <h5 style="text-align: center;">Welcome {{Name}}</h5>
                 <mat-card-subtitle>Please select your candidate :</mat-card-subtitle>
                 <mat-card-content>
 
-                <mat-radio-group name="choice" [(ngModel)]="choice" #selectedchoice="ngModel"  *ngFor= " let obj of arr" aria-label="Select a Candidate">
+                <mat-radio-group name="choice" [(ngModel)]="choice" #selectedchoice="ngModel" 
+                 *ngFor= " let obj of arr" aria-label="Select a Candidate">
 
                 <mat-radio-button  value={{obj.Roll}}  labelPosition="before">
-                        {{obj.Name}} &nbsp; &nbsp;  Roll no. :{{obj.Roll}}
+                        {{obj.Name}} &nbsp; &nbsp;  Roll no. :{{obj.Roll}}&nbsp; &nbsp;
                 </mat-radio-button>
                 <br>
-        <!-- <mat-radio-button value="1" labelPosition="before">{{Name}} 1 &nbsp; &nbsp;  Roll no. :242</mat-radio-button>
-        <br>
-        <mat-radio-button value="2" labelPosition="before">Name 2   &nbsp; &nbsp; Roll no. :241</mat-radio-button>
-        <br> -->
+        
                 </mat-radio-group>
                 <br>
-                You have selected ={{choice}}
+                You have selected =&nbsp;{{choice}}
                 <br>
                 <mat-checkbox>I want to cast the vote for above selected candidate </mat-checkbox>
                 <br>

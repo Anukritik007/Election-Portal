@@ -12,8 +12,8 @@ import { NgxSpinnerService } from 'ngx-spinner';
 export class VoterScreenComponent implements OnInit {
 
   arr:any[]=[];
-  Name:string;
-  choice:number;
+  Name:string=localStorage.getItem('voterName');
+  choice:string='nothing';
   disablebutton:boolean=false;
 
   constructor(private router: Router, private loginservice:LoginService, private spinner: NgxSpinnerService) { 
@@ -22,8 +22,11 @@ export class VoterScreenComponent implements OnInit {
 
   CastVote()
   {
-    console.log(typeof(this.choice)); //string
-
+    console.log(this.choice); //string
+    if(this.choice == 'nothing'){
+      alertify.alert('Please select a candidate then click the button !');
+    }
+console.log(this.Name);
       for( let i=0;i<this.arr.length;i++)
       {
         console.log(this.arr);
@@ -33,31 +36,49 @@ export class VoterScreenComponent implements OnInit {
           let newcount=this.arr[i].currentVotes + 1;
           console.log(newcount);
           
-          this.spinner.show();
+          
           let send={
             "choice":Number(this.choice),   //typecasting
             "newCountOfVotes": newcount
           };
 
-          //TODO:
-          //create a service method addChoice , send choice to voter databse
-          // check if choice exists in database then display alert thet already voted and logout
+          let voterChoice={
+            "voterRoll": Number(localStorage.getItem('voterRoll')),
+            "voterChoice":this.choice
+          }
 
-          this.loginservice.addVote(send)
+          this.spinner.show();
+          this.loginservice.addChoiceToVoter(voterChoice)
           .subscribe(
             (data:any)=>
-             {
+            {
+              console.log('Step 2');
+              console.log(data);
+              
+            },
+            error=> 
+                  {
+                  console.log('some error in reaching Database !');
+                  }
+          );
+          
+          
+            this.loginservice.addVote(send)
+            .subscribe(
+              (data:any)=>
+               {
+                console.log('Step 3');
                 this.spinner.hide();
-                  console.log(data);
-                  this.disablebutton=true;
-      
-              },
-                error=> 
-                {
-                this.spinner.hide();
-                console.log('some error in reaching Database !');
-                }
-                );
+                alertify.alert('Congratulations! your vote has been recorded. You can now logout');
+                    console.log(data);
+                    this.disablebutton=true;
+        
+                },
+                  error=> 
+                  {
+                  console.log('some error in reaching Database !');
+                  }
+              );
         }
       }
     
@@ -93,8 +114,29 @@ export class VoterScreenComponent implements OnInit {
           this.spinner.hide();
           console.log('some error in reaching Database !');
           }
-          );
-    
+      );
+
+      let roll={
+        "voterRoll":localStorage.getItem('voterRoll')
+      }
+      this.loginservice.getChoice(roll)
+      .subscribe(
+        (data:any)=>
+        {
+          console.log('Step 1');
+          console.log(data);
+          if(data != 0)
+          {
+            console.log(data);
+          this.router.navigate(['']);
+          alertify.alert('You have already voted !');
+        }
+          },
+        error=> 
+            {
+            console.log('some error in reaching Database !');
+            }
+      );
 
     }
   

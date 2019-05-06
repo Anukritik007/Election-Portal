@@ -46,8 +46,8 @@ export class VoterComponent implements OnInit {
           this.error = 'Invalid Credentials';
         }
         else{
-          // localStorage.setItem('token',data.toString());
-        localStorage.setItem('name',data.toString());
+        localStorage.setItem('voterName',data[0]);
+        localStorage.setItem('voterRoll',data[1].toString());
         console.log('Success login');
         // localStorage.setItem('UserId',data[1].toString());
         this.router.navigate(['/voterscreen']);

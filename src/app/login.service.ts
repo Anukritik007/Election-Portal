@@ -10,7 +10,7 @@ export class LoginService {
 
   loginVoter(body:any)
   {
-    return this.http.post('login-voter',body,{
+    return this.http.post('https://r49y3uboc9.execute-api.us-east-2.amazonaws.com/develop/login-voter',body,{
       observe:'body'
       })
   }
@@ -18,26 +18,43 @@ export class LoginService {
   addCandidate(body:any)
   {
     
-    return this.http.post('add-candidate',body,{
+    return this.http.post('https://r49y3uboc9.execute-api.us-east-2.amazonaws.com/develop/add-candidate',body,{
       observe:'body'
   })
   }
   
   addVoter(body:any)
   {
-    return this.http.post('add-voter',body,{
+    return this.http.post('https://r49y3uboc9.execute-api.us-east-2.amazonaws.com/develop/add-voter',body,{
       observe:'body'
   })
   }
 
   getCandidateDetails(body:any){
-    return this.http.post('get-candidate-details',body,{
+    return this.http.post('https://r49y3uboc9.execute-api.us-east-2.amazonaws.com/develop/get-candidate-details',body,{
       observe:'body'
   })
   }
 
   addVote(body:any){
-    return this.http.post('update-vote',body,{
+    return this.http.post('https://r49y3uboc9.execute-api.us-east-2.amazonaws.com/develop/update-vote',body,{
+      observe:'body'
+  })
+  }
+
+  getWinner(body:any){
+    return this.http.post('https://r49y3uboc9.execute-api.us-east-2.amazonaws.com/develop/get-winner',body,{
+      observe:'body'
+  })
+  }
+
+  getChoice(body:any){
+    return this.http.post('https://r49y3uboc9.execute-api.us-east-2.amazonaws.com/develop/get-voter-choice',body,{
+      observe:'body'
+  })
+  }
+  addChoiceToVoter(body:any){
+    return this.http.post('https://r49y3uboc9.execute-api.us-east-2.amazonaws.com/develop/add-choice-of-voter',body,{
       observe:'body'
   })
   }

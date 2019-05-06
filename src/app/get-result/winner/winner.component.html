@@ -1,3 +1,28 @@
-<img src="assets/winner.jpg" alt="winner image">
-<h3>The winner of the Election is: {{ winner}}</h3>
-<h4>with number of votes :{{numberOfVotes}}</h4>
+
+<div *ngIf="!manyWinners">
+
+<img src="assets/first.jpg" style="display: block;
+margin-left: auto;
+margin-right: auto;
+width: 50%; " alt="winner image">
+
+    <h3>The winner of the Election is:&nbsp; {{ winner}}</h3>
+    <h4 style="text-align: center;">with number of votes :{{numberOfVotes}}</h4>
+</div>
+
+<div *ngIf="manyWinners">
+       
+<img src="assets/group.jpg" style="display: block;
+margin-left: auto;
+margin-right: auto;
+width: 30%; " alt="winner image">
+    <h3>Oops! There is a draw between the following candidates :</h3>
+    <ul>
+    <li style="margin-left:20%; font-weight: bold;" *ngFor="let item of listOfWinners">
+        {{item}}
+    </li>
+    </ul>
+
+    <h4 style="text-align: center;">with number of votes :{{numberOfVotes}}</h4>
+</div>
+
