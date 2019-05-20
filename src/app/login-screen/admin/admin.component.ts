@@ -11,8 +11,9 @@ import CryptoJS from 'crypto-js';
 export class AdminComponent implements OnInit {
 
   email:string;
+  em:string;
   pwd:string;
-  check:boolean=true;
+  hide:boolean=true;
   error:string;
   purpose:string="add";
 
@@ -37,7 +38,13 @@ export class AdminComponent implements OnInit {
       this.router.navigate(['/getresult']);
     }
     else {
-      this.check = false;
+      this.hide=false;
+
+        setTimeout(function(){
+        this.hide=true;
+        
+        }.bind(this),3000);
+        
       this.error = 'Invalid Credentials';
     }
   }

@@ -14,6 +14,7 @@ export class AddCandidateComponent implements OnInit {
   name:string;
   roll:number;
   em:string;
+  hide:boolean=true;
 
   constructor(private loginservice:LoginService, private spinner: NgxSpinnerService) { }
 
@@ -60,10 +61,12 @@ export class AddCandidateComponent implements OnInit {
 
         this.successMessage = successval;
         
+        this.hide=false;
+
         setTimeout(function(){
-        this.successMessage = '';
-        // document.getElementById('show').style.display='none';
-        },2000);
+        this.hide=true;
+        
+        }.bind(this),3000);
         
         console.log("msg : "+this.successMessage);
         }

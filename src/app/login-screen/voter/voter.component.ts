@@ -13,8 +13,9 @@ import {LoginService} from '../../login.service';
 export class VoterComponent implements OnInit {
 
   email:string;
+  em:string;
   pwd:string;
-  check:boolean=true;
+  hide:boolean=true;
   error:string;
 
   constructor(private router: Router ,private loginservice:LoginService, private spinner: NgxSpinnerService) { }
@@ -42,7 +43,13 @@ export class VoterComponent implements OnInit {
         console.log("data: "+data);
         if(data==null)  //no data returned in case of invalid credentials from RESTapi
         {
-          this.check=false;
+          this.hide=false;
+
+          setTimeout(function(){
+          this.hide=true;
+          
+          }.bind(this),3000);
+          
           this.error = 'Invalid Credentials';
         }
         else{
